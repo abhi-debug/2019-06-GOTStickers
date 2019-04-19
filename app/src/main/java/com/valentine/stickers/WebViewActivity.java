@@ -14,5 +14,6 @@ public class WebViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.webview_privacy_policy);
 ///this is show privacy policy
         webView.loadUrl(getString(R.string.privacy_policy_url));
+       ////// webview url add in string xml
     }
 }
