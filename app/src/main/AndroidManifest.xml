@@ -80,6 +80,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.applovin.adview.AppLovinInterstitialActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.applovin.adview.AppLovinConfirmationActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="su4umv3d8_tnZ2LVyhGbpHI9dtKbENn4Fsz0l0dt_VeZT-3UfK4TbNdDEypTKaTZQVZ9VC1Vif3Fe7kJSpn2AP" />
     </application>
 
 </manifest>

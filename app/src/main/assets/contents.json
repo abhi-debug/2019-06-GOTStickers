@@ -5,7 +5,106 @@
 
 
 
-
+    {
+      "identifier": "7",
+      "name": "Game Of Thrones",
+      "publisher": "The Captain Flint",
+      "tray_image_file": "icon_game.png",
+      "publisher_email":"",
+      "publisher_website": "",
+      "privacy_policy_website": "",
+      "license_agreement_website": "",
+      "stickers": [
+        {
+          "image_file": "1_game_of.webp",
+          "emojis": ["☕","🙂"]
+        },
+        {
+          "image_file": "2_game_of.webp",
+          "emojis": ["😄","😀"]
+        },
+        {
+          "image_file": "3_game_of.webp",
+          "emojis": ["😆","😂"]
+        },
+        {
+          "image_file": "4_game_of.webp",
+          "emojis": ["😩","😰"]
+        },
+        {
+          "image_file": "5_game_of.webp",
+          "emojis": ["😭","💧"]
+        },
+        {
+          "image_file": "6_game_of.webp",
+          "emojis": ["😍","♥"]
+        },
+        {
+          "image_file": "7_game_of.webp",
+          "emojis": ["💔","👎"]
+        },
+        {
+          "image_file": "8_game_of.webp",
+          "emojis": ["😍","💑"]
+        },
+        {
+          "image_file": "9_game_of.webp",
+          "emojis": ["😘","🍪"]
+        },
+        {
+          "image_file": "10_game_of.webp",
+          "emojis": ["🤔","😐"]
+        },
+        {
+          "image_file": "11_game_of.webp",
+          "emojis": ["😱","😵"]
+        },
+        {
+          "image_file": "12_game_of.webp",
+          "emojis": ["😡","😠"]
+        },
+        {
+          "image_file": "13_game_of.webp",
+          "emojis": ["❓","🤔"]
+        },
+        {
+          "image_file": "14_game_of.webp",
+          "emojis": ["🌈","😜"]
+        },
+        {
+          "image_file": "15_game_of.webp",
+          "emojis": ["💻","😩"]
+        },
+        {
+          "image_file": "16_game_of.webp",
+          "emojis": ["😡","😤"]
+        },
+        {
+          "image_file": "17_game_of.webp",
+          "emojis": ["😩","😨"]
+        },
+        {
+          "image_file": "18_game_of.webp",
+          "emojis": ["💻","🌃"]
+        },
+        {
+          "image_file": "19_game_of.webp",
+          "emojis": ["🎉","✨"]
+        },
+        {
+          "image_file": "20_game_of.webp",
+          "emojis": ["🤮","👎"]
+        },
+        {
+          "image_file": "21_game_of.webp",
+          "emojis": ["🖐","🙋"]
+        },
+        {
+          "image_file": "22_game_of.webp",
+          "emojis": ["🖐","👋"]
+        }
+      ]
+    },
     {
       "identifier": "1",
       "name": "Game of Thrones 1",
@@ -105,9 +204,6 @@
         }
       ]
     },
-
-
-
     {
       "identifier": "2",
       "name": "Game of Thrones 2",
@@ -305,11 +401,6 @@
         }
       ]
     },
-
-
-
-
-
     {
       "identifier": "4",
       "name": "Cersei",
@@ -503,106 +594,6 @@
         {
           "image_file": "17.webp",
           "emojis": ["😀","😙"]
-        }
-      ]
-    },
-    {
-      "identifier": "7",
-      "name": "Game Of Thrones",
-      "publisher": "The Captain Flint",
-      "tray_image_file": "icon_game.png",
-      "publisher_email":"",
-      "publisher_website": "",
-      "privacy_policy_website": "",
-      "license_agreement_website": "",
-      "stickers": [
-        {
-          "image_file": "1_game_of.webp",
-          "emojis": ["☕","🙂"]
-        },
-        {
-          "image_file": "2_game_of.webp",
-          "emojis": ["😄","😀"]
-        },
-        {
-          "image_file": "3_game_of.webp",
-          "emojis": ["😆","😂"]
-        },
-        {
-          "image_file": "4_game_of.webp",
-          "emojis": ["😩","😰"]
-        },
-        {
-          "image_file": "5_game_of.webp",
-          "emojis": ["😭","💧"]
-        },
-        {
-          "image_file": "6_game_of.webp",
-          "emojis": ["😍","♥"]
-        },
-        {
-          "image_file": "7_game_of.webp",
-          "emojis": ["💔","👎"]
-        },
-        {
-          "image_file": "8_game_of.webp",
-          "emojis": ["😍","💑"]
-        },
-        {
-          "image_file": "9_game_of.webp",
-          "emojis": ["😘","🍪"]
-        },
-        {
-          "image_file": "10_game_of.webp",
-          "emojis": ["🤔","😐"]
-        },
-        {
-          "image_file": "11_game_of.webp",
-          "emojis": ["😱","😵"]
-        },
-        {
-          "image_file": "12_game_of.webp",
-          "emojis": ["😡","😠"]
-        },
-        {
-          "image_file": "13_game_of.webp",
-          "emojis": ["❓","🤔"]
-        },
-        {
-          "image_file": "14_game_of.webp",
-          "emojis": ["🌈","😜"]
-        },
-        {
-          "image_file": "15_game_of.webp",
-          "emojis": ["💻","😩"]
-        },
-        {
-          "image_file": "16_game_of.webp",
-          "emojis": ["😡","😤"]
-        },
-        {
-          "image_file": "17_game_of.webp",
-          "emojis": ["😩","😨"]
-        },
-        {
-          "image_file": "18_game_of.webp",
-          "emojis": ["💻","🌃"]
-        },
-        {
-          "image_file": "19_game_of.webp",
-          "emojis": ["🎉","✨"]
-        },
-        {
-          "image_file": "20_game_of.webp",
-          "emojis": ["🤮","👎"]
-        },
-        {
-          "image_file": "21_game_of.webp",
-          "emojis": ["🖐","🙋"]
-        },
-        {
-          "image_file": "22_game_of.webp",
-          "emojis": ["🖐","👋"]
         }
       ]
     }

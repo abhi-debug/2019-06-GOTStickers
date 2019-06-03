@@ -21,6 +21,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +33,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.applovin.adview.AppLovinIncentivizedInterstitial;
+import com.applovin.sdk.AppLovinAd;
+import com.applovin.sdk.AppLovinAdLoadListener;
+import com.applovin.sdk.AppLovinSdk;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdIconView;
@@ -82,11 +87,15 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     TimerTask timerTask;
     final Handler handler = new Handler();
 
+    private AppLovinIncentivizedInterstitial incentivizedInterstitial = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sticker_pack_list);
 
+        AppLovinSdk.initializeSdk(this);
+        loadApplovinAds();
         promoMyBannerAds();
 
         packRecyclerView = findViewById(R.id.sticker_pack_list);
@@ -166,6 +175,26 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 // Ad impression logged callback
             }
         });*/
+    }
+
+    private void loadApplovinAds() {
+        incentivizedInterstitial = AppLovinIncentivizedInterstitial.create(getApplicationContext());
+        incentivizedInterstitial.preload(new AppLovinAdLoadListener() {
+            @Override
+            public void adReceived(AppLovinAd appLovinAd) {
+            }
+
+            @Override
+            public void failedToReceiveAd(int errorCode) {
+            }
+        });
+    }
+
+    private void showApplovinAd() {
+        if (incentivizedInterstitial != null) {
+            incentivizedInterstitial.show(this);
+        }
+        loadApplovinAds();
     }
 
     private void promoMyBannerAds() {
@@ -297,6 +326,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 if (isFinishing()) {
                     timerTask.cancel();
                 }
+                showApplovinAd();
                 finish();
             }
         });
