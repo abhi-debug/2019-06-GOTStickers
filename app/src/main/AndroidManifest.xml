@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.valentine.stickers">
+    package="com.wastickerapps.diwalistickers">
     <!-- These permissions are strongly recommended and will result in higher performance -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -9,19 +9,19 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".StickerApplication"
+        android:name="com.wastickerapps.diwalistickers.StickerApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/app_icon"
+        android:icon="@drawable/sticker_app_icon"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@drawable/app_icon"
+        android:roundIcon="@drawable/sticker_app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WebViewActivity"></activity>
-        <activity android:name=".EntryActivity">
+        <activity android:name="com.wastickerapps.diwalistickers.WebViewActivity"></activity>
+        <activity android:name="com.wastickerapps.diwalistickers.EntryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,28 +29,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".StickerPackListActivity"
+            android:name="com.wastickerapps.diwalistickers.StickerPackListActivity"
             android:label="@string/title_activity_sticker_packs_list" />
         <activity
-            android:name=".StickerPackDetailsActivity"
-            android:parentActivityName=".StickerPackListActivity"
+            android:name="com.wastickerapps.diwalistickers.StickerPackDetailsActivity"
+            android:parentActivityName="com.wastickerapps.diwalistickers.StickerPackListActivity"
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.valentine.stickers.StickerPackListActivity" />
+                android:value="com.wastickerapps.diwalistickers.StickerPackListActivity" />
         </activity>
         <activity
-            android:name=".StickerPackInfoActivity"
+            android:name="com.wastickerapps.diwalistickers.StickerPackInfoActivity"
             android:label="@string/title_activity_sticker_pack_info"
-            android:parentActivityName=".StickerPackDetailsActivity"
+            android:parentActivityName="com.wastickerapps.diwalistickers.StickerPackDetailsActivity"
             tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.valentine.stickers.StickerPackDetailsActivity" />
+                android:value="com.wastickerapps.diwalistickers.StickerPackDetailsActivity" />
         </activity>
 
         <provider
-            android:name=".StickerContentProvider"
+            android:name="com.wastickerapps.diwalistickers.StickerContentProvider"
             android:authorities="${contentProviderAuthority}"
             android:enabled="true"
             android:exported="true"

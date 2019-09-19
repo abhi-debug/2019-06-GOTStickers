@@ -3,9 +3,8 @@ package fb.adstest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.valentine.stickers.R;
+import com.wastickerapps.diwalistickers.R;
 
 
 public class InterstitialAdsFb extends AppCompatActivity {
