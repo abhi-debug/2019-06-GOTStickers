@@ -29,7 +29,7 @@ android {
     }
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.gameofthrones.stickers"
+        applicationId "com.wastickerapps.diwalistickers"
         minSdkVersion 16
         targetSdkVersion 28
         ///change version code when update on play console
@@ -61,7 +61,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled true
+            //minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

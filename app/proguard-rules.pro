@@ -21,4 +21,11 @@
 #-renamesourcefileattribute SourceFile
 -dontwarn okio.**
 -dontwarn retrofit2.Platform$Java8
+-ignorewarnings
 
+-keep class * {
+    public private *;
+}
+-keep class com.google.android.gms.internal.** { *; }
+-keep public class com.google.android.gms.* { public *; }
+-dontwarn com.google.android.gms.**
