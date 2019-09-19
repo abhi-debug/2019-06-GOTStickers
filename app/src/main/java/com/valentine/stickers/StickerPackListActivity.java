@@ -33,17 +33,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.applovin.adview.AppLovinIncentivizedInterstitial;
-import com.applovin.sdk.AppLovinAd;
-import com.applovin.sdk.AppLovinAdLoadListener;
-import com.applovin.sdk.AppLovinSdk;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdIconView;
-import com.facebook.ads.AdOptionsView;
-import com.facebook.ads.NativeAdLayout;
-import com.facebook.ads.NativeAdListener;
-import com.facebook.ads.NativeBannerAd;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.onesignal.OneSignal;
 import com.valentine.stickers.imagesliderbanner.API;
 import com.valentine.stickers.imagesliderbanner.MyBanner;
 import com.valentine.stickers.imagesliderbanner.ViewPagerAdapter;
@@ -71,9 +63,9 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     private WhiteListCheckAsyncTask whiteListCheckAsyncTask;
     private ArrayList<StickerPack> stickerPackList;
 
-    private NativeBannerAd nativeBannerAd;
+
     private LinearLayout adView;
-    private NativeAdLayout nativeAdLayout;
+
 
     //private InterstitialAd interstitialAd;
 
@@ -87,58 +79,31 @@ public class StickerPackListActivity extends AddStickerPackActivity {
     TimerTask timerTask;
     final Handler handler = new Handler();
 
-    private AppLovinIncentivizedInterstitial incentivizedInterstitial = null;
 
+
+    //Google Ads
+    private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sticker_pack_list);
 
-        AppLovinSdk.initializeSdk(this);
-        loadApplovinAds();
+        //OneSignal
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
+
+
+
         promoMyBannerAds();
 
         packRecyclerView = findViewById(R.id.sticker_pack_list);
         stickerPackList = getIntent().getParcelableArrayListExtra(EXTRA_STICKER_PACK_LIST_DATA);
         showStickerPackList(stickerPackList);
 
-        nativeBannerAd = new NativeBannerAd(this, getResources().getString(R.string.fb_native_banner_ads_app_id));
-        nativeBannerAd.setAdListener(new NativeAdListener() {
-            @Override
-            public void onMediaDownloaded(Ad ad) {
-            }
 
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Native ad failed to load
-            }
 
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Native ad is loaded and ready to be displayed
-                if (nativeBannerAd == null || nativeBannerAd != ad) {
-                    return;
-                }
-                // Inflate Native Banner Ad into Container
-                inflateAd(nativeBannerAd);
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Native ad clicked
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Native ad impression
-            }
-        });
-        // load the ad
-        if (PlayStoreDownloadCheck.verifyInstallerId(this)) {
-            nativeBannerAd.loadAd();
-        } else {
-            Toast.makeText(this, "For all features download the app from the Play Store", Toast.LENGTH_SHORT).show();
-        }
 
         /*interstitialAd = new InterstitialAd(this, getResources().getString(R.string.fb_interstitial_ads_app_id));
         interstitialAd.loadAd();*/
@@ -175,27 +140,15 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 // Ad impression logged callback
             }
         });*/
+
+
+        //Google Ads
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
-    private void loadApplovinAds() {
-        incentivizedInterstitial = AppLovinIncentivizedInterstitial.create(getApplicationContext());
-        incentivizedInterstitial.preload(new AppLovinAdLoadListener() {
-            @Override
-            public void adReceived(AppLovinAd appLovinAd) {
-            }
 
-            @Override
-            public void failedToReceiveAd(int errorCode) {
-            }
-        });
-    }
-
-    private void showApplovinAd() {
-        if (incentivizedInterstitial != null) {
-            incentivizedInterstitial.show(this);
-        }
-        loadApplovinAds();
-    }
 
     private void promoMyBannerAds() {
         viewPager = findViewById(R.id.viewPager);
@@ -326,7 +279,7 @@ public class StickerPackListActivity extends AddStickerPackActivity {
                 if (isFinishing()) {
                     timerTask.cancel();
                 }
-                showApplovinAd();
+
                 finish();
             }
         });
@@ -379,44 +332,6 @@ public class StickerPackListActivity extends AddStickerPackActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void inflateAd(NativeBannerAd nativeBannerAd) {
-        // Unregister last ad
-        nativeBannerAd.unregisterView();
-
-        // Add the Ad view into the ad container.
-        nativeAdLayout = findViewById(R.id.native_banner_ad_container);
-        LayoutInflater inflater = LayoutInflater.from(StickerPackListActivity.this);
-        // Inflate the Ad view.  The layout referenced is the one you created in the last step.
-        adView = (LinearLayout) inflater.inflate(R.layout.native_banner_custom_layout, nativeAdLayout, false);
-        nativeAdLayout.addView(adView);
-
-        // Add the AdChoices icon
-        RelativeLayout adChoicesContainer = adView.findViewById(R.id.ad_choices_container);
-        AdOptionsView adOptionsView = new AdOptionsView(StickerPackListActivity.this, nativeBannerAd, nativeAdLayout);
-        adChoicesContainer.removeAllViews();
-        adChoicesContainer.addView(adOptionsView, 0);
-
-        // Create native UI using the ad metadata.
-        TextView nativeAdTitle = adView.findViewById(R.id.native_ad_title);
-        TextView nativeAdSocialContext = adView.findViewById(R.id.native_ad_social_context);
-        TextView sponsoredLabel = adView.findViewById(R.id.native_ad_sponsored_label);
-        AdIconView nativeAdIconView = adView.findViewById(R.id.native_icon_view);
-        Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
-
-        // Set the Text.
-        nativeAdCallToAction.setText(nativeBannerAd.getAdCallToAction());
-        nativeAdCallToAction.setVisibility(
-                nativeBannerAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
-        nativeAdTitle.setText(nativeBannerAd.getAdvertiserName());
-        nativeAdSocialContext.setText(nativeBannerAd.getAdSocialContext());
-        sponsoredLabel.setText(nativeBannerAd.getSponsoredTranslation());
-
-        // Register the Title and CTA button to listen for clicks.
-        List<View> clickableViews = new ArrayList<>();
-        clickableViews.add(nativeAdTitle);
-        clickableViews.add(nativeAdCallToAction);
-        nativeBannerAd.registerViewForInteraction(adView, nativeAdIconView, clickableViews);
-    }
 
     @Override
     protected void onResume() {
@@ -492,4 +407,6 @@ public class StickerPackListActivity extends AddStickerPackActivity {
             }
         }
     }
+
+
 }

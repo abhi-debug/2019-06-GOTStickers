@@ -103,7 +103,7 @@
     },
     {
       "identifier": "1",
-      "name": "Game of Thrones 1",
+      "name": "Dusshera Sticker",
       "publisher": "The Captain Flint",
       "tray_image_file": "tryicon.png",
       "publisher_email":"",
@@ -299,7 +299,7 @@
     },
     {
       "identifier": "3",
-      "name": "Game of Thrones 3",
+      "name": "Diwali Stickers",
       "publisher": "The Captain Flint",
       "tray_image_file": "tryicon.png",
       "publisher_email":"",
@@ -399,7 +399,7 @@
     },
     {
       "identifier": "4",
-      "name": "Cersei",
+      "name": "Crackers",
       "publisher": "The Captain Flint",
       "tray_image_file": "logo.png",
       "publisher_email":"",
@@ -461,6 +461,10 @@
         },
         {
           "image_file": "14.webp",
+          "emojis": ["😀","😘"]
+        },
+        {
+          "image_file": "15.webp",
           "emojis": ["😀","😘"]
         }
       ]

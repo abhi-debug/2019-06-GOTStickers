@@ -90,6 +90,18 @@
         <meta-data
             android:name="applovin.sdk.key"
             android:value="su4umv3d8_tnZ2LVyhGbpHI9dtKbENn4Fsz0l0dt_VeZT-3UfK4TbNdDEypTKaTZQVZ9VC1Vif3Fe7kJSpn2AP" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1a8d2977f28f8d837ce5d5cb37dfdb7084b3b502"
+            />
+        <meta-data
+
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

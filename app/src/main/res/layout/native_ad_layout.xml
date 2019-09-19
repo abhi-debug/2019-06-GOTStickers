@@ -15,10 +15,10 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-        <com.facebook.ads.AdIconView
+      <!--  <com.facebook.ads.AdIconView
             android:id="@+id/native_ad_icon"
             android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_height="35dp" />-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -55,12 +55,12 @@
             android:orientation="horizontal" />
 
     </LinearLayout>
-
+<!--
     <com.facebook.ads.MediaView
         android:id="@+id/native_ad_media"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
